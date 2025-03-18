@@ -1,0 +1,336 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    padding: 20px;
+  }
+  
+  .login-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .login-header h1 {
+    color: #3a86ff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .login-header p {
+    color: #718096;
+    font-size: 1rem;
+  }
+  
+  .login-error {
+    background-color: #fff5f5;
+    color: #e53e3e;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-error::before {
+    content: "⚠️";
+    margin-right: 8px;
+    font-size: 1rem;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    color: #4a5568;
+    font-size: 0.9rem;
+  }
+  
+  .password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .forgot-password {
+    font-size: 0.85rem;
+    color: #3a86ff;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  .input-with-icon {
+    position: relative;
+  }
+  
+  .input-with-icon input {
+    width: 100%;
+    padding: 14px 14px 14px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .input-with-icon input:focus {
+    border-color: #3a86ff;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+    outline: none;
+  }
+  
+  .input-with-icon input::placeholder {
+    color: #a0aec0;
+  }
+  
+  .icon-email, .icon-password, .icon-google, .icon-github {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: #a0aec0;
+  }
+  
+  /* Use Font Awesome or another icon library in real implementation */
+  .icon-email::before {
+    content: "✉️";
+  }
+  
+  .icon-password::before {
+    content: "🔒";
+  }
+  
+  .icon-google::before {
+    content: "G";
+  }
+  
+  .icon-github::before {
+    content: "GH";
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #3a86ff;
+  }
+  
+  .remember-me label {
+    font-size: 0.9rem;
+    color: #4a5568;
+  }
+  
+  .login-button {
+    background-color: #3a86ff;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .login-button:hover:not(:disabled) {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+  }
+  
+  .login-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .login-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    color: #a0aec0;
+    font-size: 0.9rem;
+  }
+  
+  .login-divider::before,
+  .login-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .login-divider span {
+    padding: 0 10px;
+  }
+  
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+    background-color: white;
+  }
+  
+  .social-button:hover {
+    background-color: #f7fafc;
+  }
+  
+  .social-button.google {
+    color: #ea4335;
+  }
+  
+  .social-button.github {
+    color: #24292e;
+  }
+  
+  .signup-prompt {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.95rem;
+    color: #4a5568;
+  }
+  
+  .signup-prompt a {
+    color: #3a86ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .signup-prompt a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .login-container {
+      background-color: #1a202c;
+    }
+  
+    .login-card {
+      background-color: #2d3748;
+    }
+  
+    .login-header h1 {
+      color: #4299e1;
+    }
+  
+    .login-header p {
+      color: #a0aec0;
+    }
+  
+    .form-group label {
+      color: #e2e8f0;
+    }
+  
+    .input-with-icon input {
+      background-color: #2d3748;
+      border-color: #4a5568;
+      color: #e2e8f0;
+    }
+  
+    .input-with-icon input::placeholder {
+      color: #718096;
+    }
+  
+    .input-with-icon input:focus {
+      border-color: #4299e1;
+    }
+  
+    .remember-me label {
+      color: #e2e8f0;
+    }
+  
+    .login-error {
+      background-color: rgba(229, 62, 62, 0.1);
+    }
+  
+    .login-divider {
+      color: #718096;
+    }
+  
+    .login-divider::before,
+    .login-divider::after {
+      border-bottom-color: #4a5568;
+    }
+  
+    .social-button {
+      background-color: #2d3748;
+      border-color: #4a5568;
+    }
+  
+    .social-button:hover {
+      background-color: #4a5568;
+    }
+  
+    .signup-prompt {
+      color: #e2e8f0;
+    }
+  }
+  

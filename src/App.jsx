@@ -4,8 +4,18 @@ import TaskList from './components/TaskList';
 import TaskFilter from './components/TaskFilter';
 import taskService from './services/task.service';
 import './App.css';
+import Login from './components/auth/Login';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('user') !== null;
+  });
+  
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -122,6 +132,26 @@ function App() {
     const activeTasks = filteredTasks.filter(task => !task.completed).length;
     const completedTasks = filteredTasks.filter(task => task.completed).length;
 
+
+    const handleLogin = (userData) => {
+      setUser(userData);
+      setIsAuthenticated(true);
+      
+      // You could load user-specific tasks here if connecting to an API
+      // For now, we'll just use what's in localStorage or an empty array
+      // const savedTasks = localStorage.getItem('tasks');
+      // setTasks(savedTasks ? JSON.parse(savedTasks) : []);
+    };
+  
+    const handleLogout = () => {
+      localStorage.removeItem('user');
+      setUser(null);
+      setIsAuthenticated(false);
+    };
+
+    if (!isAuthenticated) {
+      return <Login onLogin={handleLogin} />;
+    }
 
   return (
     <div className="task-manager">
