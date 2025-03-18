@@ -38,7 +38,7 @@ function TaskItem({ task, toggleComplete, editTask, deleteTask }) {
           />
           <textarea
             name="description"
-            value={editedTask.description}
+            value={editedTask.description || ''}
             onChange={handleChange}
             rows="2"
             placeholder="Task description"
@@ -55,7 +55,7 @@ function TaskItem({ task, toggleComplete, editTask, deleteTask }) {
           <input
             type="date"
             name="dueDate"
-            value={editedTask.dueDate}
+            value={editedTask.dueDate ? new Date(editedTask.dueDate).toISOString().split('T')[0] : ''}
             onChange={handleChange}
           />
           <div className="edit-buttons">
@@ -70,7 +70,7 @@ function TaskItem({ task, toggleComplete, editTask, deleteTask }) {
               <input
                 type="checkbox"
                 checked={task.completed}
-                onChange={() => toggleComplete(task.id)}
+                onChange={() => toggleComplete(task._id)}
               />
               <h3 className={task.completed ? 'completed-title' : ''}>
                 {task.title}
@@ -78,7 +78,7 @@ function TaskItem({ task, toggleComplete, editTask, deleteTask }) {
             </div>
             <div className="task-actions">
               <button onClick={() => setIsEditing(true)}>Edit</button>
-              <button onClick={() => deleteTask(task.id)}>Delete</button>
+              <button onClick={() => deleteTask(task._id)}>Delete</button>
             </div>
           </div>
           <div className="task-body">

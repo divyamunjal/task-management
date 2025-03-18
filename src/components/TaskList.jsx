@@ -20,7 +20,7 @@ function TaskList({ tasks, toggleComplete, editTask, deleteTask }) {
     <div className="task-list">
       {tasks.map(task => (
         <TaskItem
-          key={task.id}
+          key={task._id}
           task={task}
           toggleComplete={toggleComplete}
           editTask={editTask}
